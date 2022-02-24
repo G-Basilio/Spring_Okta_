@@ -1,0 +1,47 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch DemoApplication",
+            "request": "launch",
+            "mainClass": "com.okta.springbootspa.DemoApplication"
+        },
+        {
+            "type": "java",
+            "name": "Launch UserApplication",
+            "request": "launch",
+            "mainClass": "com.example.user.UserApplication",
+            "projectName": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-DemoApplication<spring-boot-spa>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.okta.springbootspa.DemoApplication",
+            "projectName": "spring-boot-spa",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-UserApplication<user>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.example.user.UserApplication",
+            "projectName": "user",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-StocksApplication<stocks>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.example.stocks.StocksApplication",
+            "projectName": "stocks",
+            "args": ""
+        }
+    ]
+}
