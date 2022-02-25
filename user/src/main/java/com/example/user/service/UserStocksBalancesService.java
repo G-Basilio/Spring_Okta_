@@ -1,7 +1,9 @@
-/* package com.example.user.service;
+/*  package com.example.user.service;
 
 import java.util.List;
+import java.util.Optional;
 
+import com.example.user.controller.DTO.User_Stock_BalancesDTO;
 import com.example.user.model.User_Orders;
 import com.example.user.model.User_Stock_Balances;
 import com.example.user.repository.User_Stock_BalancesRepository;
@@ -10,9 +12,20 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserStocksBalancesService implements OUserStocksBalancesService{
+public class UserStocksBalancesService implements IUserStocksBalancesService {
 
     @Autowired
+    User_Stock_BalancesRepository user_Stock_BalancesRepository;
+
+    public Optional <User_Stock_BalancesDTO> findByUsername (String username){
+        Optional <User_Stock_Balances> balances = user_Stock_BalancesRepository.findByUsername(username);
+        Optional <User_Stock_BalancesDTO> balancesDTO = balances.map(dto -> new User_Stock_BalancesDTO(dto));
+        return balancesDTO;
+    }   
+}
+
+
+    /* @Autowired
     private User_Stock_BalancesRepository user_Stock_BalancesRepository;
 
     @Override
@@ -47,7 +60,4 @@ public class UserStocksBalancesService implements OUserStocksBalancesService{
     @Override
     public User_Stock_Balances finByUserAndStock(User_Orders orders) {
         return null;
-    }
-    
-}
- */
+    } */ 

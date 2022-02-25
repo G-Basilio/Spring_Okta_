@@ -4,7 +4,7 @@
       <!-- desktop menu -->
       <div class="bg-teal-darker">
         <div class="max-w-7xl mx-auto">
-          <div class="flex justify-space-between">
+          <div class="flex justify-between">
             <img
               src="./assets/Solinftec-icon.png"
               alt="Logo"
@@ -12,58 +12,122 @@
               width="64"
             />
             <!-- menu -->
-            <div class="flex space-x-5">
+            <div class="flex items-center space-x-2 py-4 px-1">
               <!-- logo -->
-              <router-link to="/">
-                <a class="flex items-center space-x-2 py-5 px-2">
-                  <svg
-                    class="w-8 h-8 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  ></svg>
-                  <span class="font-extrabold text text-white">Stock-Market</span>
-                </a>
-              </router-link>
-              <!-- menu -->
-
-              <div class="hidden md:flex items-center space-x-1">
-                <router-link
-                  to="/"
-                  class="py-5 px-2 text-white hover:text-teal-dark"
-                  >Home
-                </router-link>
-                <router-link
-                  class="py-5 px-2 text-white hover:text-teal-dark"
-                  to="/profile"
-                  v-if="authenticated"
-                >
-                  Profile
-                </router-link>
-                <router-link
-                  to="/ordens"
-                  class="py-5 px-2 text-white hover:text-teal-dark"
-                  v-if="authenticated"
-                >
-                  Ordens
-                </router-link>
-              </div>
+              <span class="font-extrabold text-white">Stock-Market</span>
             </div>
-            <!-- login -->
+
+            <!-- menu -->
+
             <div class="hidden md:flex items-center space-x-1">
-              <a
-                class="py-5 px-2 text-white hover:text-teal-dark"
+              <router-link
+                to="/"
+                class="py-5 px-2 text-white hover:text-teal-dark flex items-center"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                  ></path>
+                </svg>
+                Home
+              </router-link>
+              <router-link
+                class="py-5 px-3 text-white hover:text-teal-dark flex items-center"
+                to="/profile"
+                v-if="authenticated"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  ></path>
+                </svg>
+                Perfil
+              </router-link>
+
+              <!-- Order -->
+              <router-link
+                to="/ordens"
+                class="py-5 px-2 text-white hover:text-teal-dark flex items-center"
+                v-if="authenticated"
+                ><svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
+                  ></path>
+                </svg>
+                Orders
+              </router-link>
+            </div>
+            <!-- Logout -->
+            <div class="hidden md:flex items-center space-x-1">
+              <router-link
+                to="logout"
+                class="py-5 px-2 text-white hover:text-teal-dark cursor-pointer flex items-center"
                 v-if="authenticated"
                 v-on:click="logout()"
-              >
+                ><svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+                  ></path>
+                </svg>
                 Logout
-              </a>
+              </router-link>
+
+              <!-- Login -->
               <router-link
                 class="py-5 px-2 text-white hover:text-teal-dark"
                 to="/login"
                 v-if="!authenticated"
               >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+                  ></path>
+                </svg>
                 Login
               </router-link>
             </div>

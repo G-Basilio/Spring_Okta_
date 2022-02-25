@@ -2,7 +2,7 @@
   <div id="profile">
     <div class="flex flex-col">
       <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+        <div class="py-10 align-middle inline-block min-w-full sm:px-32 lg:px-7">
           <div
             class="shadow overflow-hidden border-b border-black sm:rounded-lg"
           >
@@ -24,13 +24,13 @@
                   scope="col"
                   class="px-6 py-3 text-center text-xs font- text-white uppercase tracking-wider"
                 >
-                  País
+                  verificação de email
                 </th>
                 <th
                   scope="col"
                   class="px-6 py-3 text-center text-xs font- text-white uppercase tracking-wider"
                 >
-                  Dinheiro
+                  Saldo
                 </th>
               </thead>
               <tbody
@@ -39,7 +39,7 @@
               :key="i"
             >
                 <td class="px-3 py-4 whitespace-nowrap">
-                  <div class="flex items-center">
+                  <div class="flex items justify-center">
                     <div class="ml-4">
                       <div class="text-sm font medium text-black">
                         {{ peoples.name }}
@@ -48,7 +48,7 @@
                   </div>
                 </td>
                 <td class="px-3 py-4 whitespace-nowrap">
-                  <div class="flex items-center">
+                  <div class="flex items justify-center">
                     <div class="ml-4">
                       <div class="text-sm font medium text-black">
                         {{ peoples.email }}
@@ -57,16 +57,16 @@
                   </div>
                 </td>
                 <td class="px-3 py-4 whitespace-nowrap">
-                  <div class="flex items-center">
+                  <div class="flex items justify-center">
                     <div class="ml-4">
                       <div class="text-sm font medium text-black">
-                        {{ peoples.pais }}
+                        {{ peoples.verificacao }}
                       </div>
                     </div>
                   </div>
                 </td>
                 <td class="px-3 py-4 whitespace-nowrap">
-                  <div class="flex items-center">
+                  <div class="flex items justify-center">
                     <div class="ml-4">
                       <div class="text-sm font medium text-black">
                         {{ peoples.dinheiro }}
@@ -111,7 +111,7 @@ export default {
         this.people.push({
           name: this.claims.name,
           email: this.claims.email,
-          pais: this.claims.locale,
+          verificacao: this.claims.email_verified,
           dinheiro: "R$ " + response.data.dollar_balance.toFixed(2)
         });
       }

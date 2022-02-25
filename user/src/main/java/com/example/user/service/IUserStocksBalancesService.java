@@ -1,16 +1,16 @@
-package com.example.user.service;
-
-import java.util.List;
-
-import com.example.user.model.User_Orders;
-import com.example.user.model.User_Stock_Balances;
-
-import org.springframework.http.ResponseEntity;
+/* package com.example.user.service;
 
 
-public interface OUserStocksBalancesService {
+import java.util.Optional;
 
-    User_Stock_Balances finByUserAndStock(long id_user, long id_stock);
+import com.example.user.controller.DTO.User_Stock_BalancesDTO;
+
+
+public interface IUserStocksBalancesService {
+
+    Optional<User_Stock_BalancesDTO> findByUsername(String username);
+
+     User_Stock_Balances finByUserAndStock(long id_user, long id_stock);
     
     User_Stock_Balances finByUserAndStock(User_Orders orders);
 
@@ -21,8 +21,9 @@ public interface OUserStocksBalancesService {
     ResponseEntity<?> updateStockUser(long id_user, long id_stock, long volume);
     
     User_Stock_Balances save(User_Stock_Balances balances);
-
+ 
 
 
     
 }
+ */
