@@ -20,7 +20,7 @@
             <!-- menu -->
 
             <div class="hidden md:flex items-center space-x-1">
-              <router-link
+              <router-link id="router-link"
                 to="/"
                 class="py-5 px-2 text-white hover:text-teal-dark flex items-center"
               >
@@ -40,7 +40,7 @@
                 </svg>
                 Home
               </router-link>
-              <router-link
+              <router-link id="router-link"
                 class="py-5 px-3 text-white hover:text-teal-dark flex items-center"
                 to="/profile"
                 v-if="authenticated"
@@ -63,7 +63,7 @@
               </router-link>
 
               <!-- Order -->
-              <router-link
+              <router-link id="router-link"
                 to="/ordens"
                 class="py-5 px-2 text-white hover:text-teal-dark flex items-center"
                 v-if="authenticated"
@@ -86,7 +86,7 @@
             </div>
             <!-- Logout -->
             <div class="hidden md:flex items-center space-x-1">
-              <router-link
+              <router-link id="router-link"
                 to="logout"
                 class="py-5 px-2 text-white hover:text-teal-dark cursor-pointer flex items-center"
                 v-if="authenticated"
@@ -109,8 +109,8 @@
               </router-link>
 
               <!-- Login -->
-              <router-link
-                class="py-5 px-2 text-white hover:text-teal-dark"
+              <router-link id="router-link"
+                class="py-5 px-2 text-white hover:text-teal-dark items-center"
                 to="/login"
                 v-if="!authenticated"
               >
@@ -211,4 +211,7 @@ export default {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+#router-link {
+  text-decoration: none !important;
+}
 </style>

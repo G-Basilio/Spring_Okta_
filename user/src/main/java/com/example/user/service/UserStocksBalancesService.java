@@ -1,4 +1,4 @@
-/*  package com.example.user.service;
+  package com.example.user.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,18 +14,18 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserStocksBalancesService implements IUserStocksBalancesService {
 
-    @Autowired
+/*     @Autowired
     User_Stock_BalancesRepository user_Stock_BalancesRepository;
 
-    public Optional <User_Stock_BalancesDTO> findByUsername (String username){
-        Optional <User_Stock_Balances> balances = user_Stock_BalancesRepository.findByUsername(username);
+    public Optional <User_Stock_BalancesDTO> findById (Long id_user){
+        Optional <User_Stock_Balances> balances = user_Stock_BalancesRepository.findById(id_user);
         Optional <User_Stock_BalancesDTO> balancesDTO = balances.map(dto -> new User_Stock_BalancesDTO(dto));
         return balancesDTO;
-    }   
+    }  */ 
 }
 
 
-    /* @Autowired
+     /* @Autowired
     private User_Stock_BalancesRepository user_Stock_BalancesRepository;
 
     @Override
@@ -60,4 +60,4 @@ public class UserStocksBalancesService implements IUserStocksBalancesService {
     @Override
     public User_Stock_Balances finByUserAndStock(User_Orders orders) {
         return null;
-    } */ 
+    }   */

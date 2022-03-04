@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface User_Stock_BalancesRepository extends JpaRepository<User_Stock_Balances, Long> { //usar por que ja tem varios metodos como save, delete etc... {
    
-    Optional<User_Stock_Balances> findById(Long id_user); 
+    Optional<User_Stock_Balances> findById(Long id_user);
 
     
 

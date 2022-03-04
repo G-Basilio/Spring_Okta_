@@ -8,8 +8,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> { //usar por que ja tem varios metodos como save, delete etc...
-/*     
-    List<User> findByusername(String username);
-    User findBydolar_balance(BigDecimal dolar_balance); */
+     
     Optional<User> findByUsername(String username);
+    //User findBydolar_balance(BigDecimal dolar_balance); 
+    //Optional<User> findByUsername(String username);
 }

@@ -38,7 +38,7 @@ public class User_Stock_BalancesDTO {
     }
  */
     public User_Stock_BalancesDTO(User_Stock_Balances user_Stock_Balances) {
-     this.id_user =id_user;
+     this.id_user = id_user;
      this.stock_symbol = stock_symbol;
      this.stock_name = stock_name;
      this.volume = volume;

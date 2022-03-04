@@ -38,28 +38,25 @@
               v-for="(peoples, i) in people"
               :key="i"
             >
-                <td class="px-3 py-4 whitespace-nowrap">
+              <tr class="font-extrabold">
+                <td class="px-3 py-4 whitespace-nowrap ">
                   <div class="flex items justify-center">
-                    <div class="ml-4">
-                      <div class="text-sm font medium text-black">
+                      <div class="text-sm medium text-teal-darker">
                         {{ peoples.name }}
-                      </div>
                     </div>
                   </div>
                 </td>
                 <td class="px-3 py-4 whitespace-nowrap">
                   <div class="flex items justify-center">
-                    <div class="ml-4">
-                      <div class="text-sm font medium text-black">
+                      <div class="text-sm medium text-teal-darker">
                         {{ peoples.email }}
-                      </div>
                     </div>
                   </div>
                 </td>
                 <td class="px-3 py-4 whitespace-nowrap">
                   <div class="flex items justify-center">
                     <div class="ml-4">
-                      <div class="text-sm font medium text-black">
+                      <div class="text-sm medium text-teal-darker">
                         {{ peoples.verificacao }}
                       </div>
                     </div>
@@ -67,13 +64,85 @@
                 </td>
                 <td class="px-3 py-4 whitespace-nowrap">
                   <div class="flex items justify-center">
-                    <div class="ml-4">
-                      <div class="text-sm font medium text-black">
+                      <div class="text-sm medium text-teal-darker">
                         {{ peoples.dinheiro }}
+                    </div>
+                  </div>
+                </td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="min-w-full divide-y divide-black">
+            </table>
+             <th
+                  class="px-6 py-3 text-white"
+                >
+                  
+                </th>
+            <table class="min-w-full divide-y divide-black">
+              <thead class="bg-teal-dark">
+                <th
+                  scope="col"
+                  class="px-6 py-3 text-center text-xs font- text-white uppercase tracking-wider"
+                >
+                  Simbolo
+                </th>
+                <th
+                  scope="col"
+                  class="px-6 py-3 text-center text-xs font- text-white uppercase tracking-wider"
+                >
+                  Nome
+                </th>
+                <th
+                  scope="col"
+                  class="px-6 py-3 text-center text-xs font- text-white uppercase tracking-wider"
+                >
+                  Quantidade
+                </th>
+                <th
+                scope="col"
+                class="px-6 py-3 text-center text-xs font- text-white uppercase tracking-wider"
+              ></th>
+              </thead>
+              <tbody
+              class="bg-teal-lightest divide-y divide-black"
+              v-for="(balances, i) in balance"
+              :key="i"
+            >
+              <tr class="font-extrabold">
+                <td class="px-3 py-4 whitespace-nowrap ">
+                  <div class="flex items justify-center">
+                      <div class="text-sm medium text-teal-darker">
+                        {{ balances.simbolo }}
+                    </div>
+                  </div>
+                </td>
+                <td class="px-3 py-4 whitespace-nowrap">
+                  <div class="flex items justify-center">
+                      <div class="text-sm medium text-teal-darker">
+                        {{ balances.nome }}
+                    </div>
+                  </div>
+                </td>
+                <td class="px-3 py-4 whitespace-nowrap">
+                  <div class="flex items justify-center">
+                    <div class="ml-4">
+                      <div class="text-sm medium text-teal-darker">
+                        {{ balances.volume }}
                       </div>
                     </div>
                   </div>
                 </td>
+                  <td class="px-3 py-4 whitespace-nowrap">
+                  <div class="flex items justify-center">
+                    <button
+                      class="bg-teal-dark hover:bg-teal-darker text-white font-bold py-2 px-4 border border-black rounded"
+                    >
+                      Vender
+                    </button>
+                  </div>
+                </td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -88,10 +157,12 @@ import axios from "axios";
 export default {
   data: () => ({
     people: [],
+    balance: [],
     infosUser: []
   }),
   async created() {
     this.config();
+    this.stockBalance();
   },
   
   methods: {
@@ -116,6 +187,27 @@ export default {
         });
       }
         
+    },
+    async stockBalance() {
+      if (this.$root.authenticated) {
+        this.claims = await this.$auth.getUser();
+        let accessToken = this.$auth.getAccessToken();
+        
+        let response = await axios.get(    
+          `http://localhost:8081/stocks/todos`, {
+        headers: { Authorization: "Bearer " + accessToken },
+          });
+    
+        console.log(response );
+        for (var chave in response.data) {
+        this.balance.push({
+          simbolo: response.data[chave].stock_symbol,
+          nome: response.data[chave].stock_name,
+          volume: response.data[chave].volume
+        });
+      }
+        
+      }
     }
   }
 }
