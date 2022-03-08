@@ -2,9 +2,9 @@
   <div id="app">
     <nav>
       <!-- desktop menu -->
-      <div class="bg-teal-darker">
+      <div class="bg-green-800 bg-opacity-80">
         <div class="max-w-7xl mx-auto">
-          <div class="flex justify-between">
+          <div class="flex justify-around">
             <img
               src="./assets/Solinftec-icon.png"
               alt="Logo"
@@ -12,7 +12,7 @@
               width="64"
             />
             <!-- menu -->
-            <div class="flex items-center space-x-2 py-4 px-1">
+            <div class="flex items-center space-x-10 px-0">
               <!-- logo -->
               <span class="font-extrabold text-white">Stock-Market</span>
             </div>
@@ -22,7 +22,7 @@
             <div class="hidden md:flex items-center space-x-1">
               <router-link id="router-link"
                 to="/"
-                class="py-5 px-2 text-white hover:text-teal-dark flex items-center"
+                class="py-5 px-80 text-white hover:text-yellow-500 flex items-center"
               >
                 <svg
                   class="w-6 h-6"
@@ -41,7 +41,7 @@
                 Home
               </router-link>
               <router-link id="router-link"
-                class="py-5 px-3 text-white hover:text-teal-dark flex items-center"
+                class="py-5 px-10 text-white hover:text-yellow-500 flex items-center"
                 to="/profile"
                 v-if="authenticated"
               >
@@ -65,7 +65,7 @@
               <!-- Order -->
               <router-link id="router-link"
                 to="/ordens"
-                class="py-5 px-2 text-white hover:text-teal-dark flex items-center"
+                class="py-5 px-2 text-white hover:text-yellow-500 flex items-center"
                 v-if="authenticated"
                 ><svg
                   class="w-6 h-6"
@@ -88,7 +88,7 @@
             <div class="hidden md:flex items-center space-x-1">
               <router-link id="router-link"
                 to="logout"
-                class="py-5 px-2 text-white hover:text-teal-dark cursor-pointer flex items-center"
+                class="py-5 px-2 text-white hover:text-yellow-500 cursor-pointer flex items-center"
                 v-if="authenticated"
                 v-on:click="logout()"
                 ><svg
@@ -110,7 +110,7 @@
 
               <!-- Login -->
               <router-link id="router-link"
-                class="py-5 px-2 text-white hover:text-teal-dark items-center"
+                class="py-5 px-2 text-white hover:text-yellow-500 items-center"
                 to="/login"
                 v-if="!authenticated"
               >
@@ -137,32 +137,26 @@
       </div>
 
       <!-- mobile menu -->
-      <div class="md:hidden bg-indigo-600" v-show="showMobileMenu">
+      <div class="" v-show="showMobileMenu">
         <router-link
           to="/"
-          class="block py-2 px-4 hover:bg-indigo-700 hover:text-indigo-400 text-indigo-100"
           >Home
         </router-link>
         <router-link
-          class="block py-2 px-4 hover:bg-indigo-700 hover:text-indigo-400 text-indigo-100"
           to="/login"
           v-if="!authenticated"
           >Login
         </router-link>
         <router-link
-          class="block py-2 px-4 hover:bg-indigo hover:text-indigo text-indigo"
           to="/profile"
           v-if="authenticated"
           >Profile
         </router-link>
-
         <router-link
           to="/ordens"
-          class="block py-2 px-4 hover:bg-indigo hover:text-indigo text-indigo"
           >Ordens
         </router-link>
         <a
-          class="block py-2 px-4 hover:bg-indigo hover:text-indigo text-indigo"
           to="/logout"
           v-if="authenticated"
           v-on:click="logout()"
@@ -177,8 +171,10 @@
 </template>
 
 <script>
+
 import { ref } from "vue";
 export default {
+
   name: "#app",
   data: function () {
     return { authenticated: false };

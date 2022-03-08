@@ -1,14 +1,14 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
-  <div class="flex flex-col">
-    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-      <div class="py-10 align-middle inline-block min-w-full sm:px-32 lg:px-7">
-        <div class="shadow overflow-hidden border-b border-black sm:rounded-lg">
+  <div class="flex-auto">
+    <div class="my-2 overflow-x-hidden sm:-mx-2 lg:-mx-1">
+      <div class="py-20 align-middle inline-table min-w-full sm:px-32 lg:px-48">
+        <div class="bg-green-300 bg-opacity-20 border-2 border-green-800 sm:rounded-lg">
           <table class="min-w-full divide-y divide-black">
-            <thead class="bg-teal-dark">
+            <thead class="bg-green-600 bg-opacity-70">
               <th
                 scope="col"
-                class="px-6 py-3 text-center text-xs font- text-white uppercase tracking-wider"
+                class="px-2 py-5 text-center text-xs text-white uppercase tracking-wider"
               >
                 Simbolo
               </th>
@@ -48,49 +48,49 @@
               ></th>
             </thead>
             <tbody
-              class="bg-teal-lightest divide-y divide-black"
+              class="divide-y divide-black"
               v-for="(acao, i) in acoes"
               :key="i"
             >
               <tr class="font-extrabold">       
                 <td class="px-3 py-4 whitespace-nowrap">
                   <div class="flex items justify-center">
-                    <div class="text-sm medium text-teal-darker">
+                    <div class="text-gray-900">
                       {{ acao.simbol }}
                     </div>
                   </div>
                 </td>
                 <td class="px-3 py-4 whitespace-nowrap">
                   <div class="flex items justify-center">
-                    <div class="text-sm medium text-teal-darker">
+                    <div class="text-gray-900">
                       {{ acao.name }}
                     </div>
                   </div>
                 </td>
                 <td class="px-3 py-4 whitespace-nowrap">
                   <div class="flex items justify-center">
-                    <div class="text-sm medium text-teal-darker">
+                    <div class="text-gray-900">
                       {{ acao.askMin }}
                     </div>
                   </div>
                 </td>
                 <td class="px-3 py-4 whitespace-nowrap">
                   <div class="flex items justify-center">
-                    <div class="text-sm medium text-teal-darker">
+                    <div class="text-gray-900">
                       {{ acao.askMax }}
                     </div>
                   </div>
                 </td>
                 <td class="px-3 py-4 whitespace-nowrap">
                   <div class="flex items justify-center">
-                    <div class="text-sm medium text-teal-darker">
+                    <div class="text-gray-900">
                       {{ acao.bidMin }}
                     </div>
                   </div>
                 </td>
                 <td class="px-3 py-4 whitespace-nowrap">
                   <div class="flex items justify-center">
-                    <div class="text-sm medium text-teal-darker">
+                    <div class="text-gray-900">
                       {{ acao.bidMax }}
                     </div>
                   </div>
@@ -98,80 +98,147 @@
                 <td class="px-3 py-4 whitespace-nowrap">
                   <div class="flex items justify-center">
                     <button
-                      class="bg-teal-dark hover:bg-teal-darker text-white font-bold py-2 px-4 border border-black rounded " type="button" data-modal-toggle="authentication-modal"
+                      class="bg-green-800 bg-opacity-80 hover:bg-yellow-400  text-white font-bold py-2 px-4 border-2 border-gray-800 rounded" type="button" v-on:click="toggleModal()"
                     >
                       Comprar
                     </button>
                     <!-- <a href="#" class="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-green hover:bg-green-dark">Comprar</a> -->
                   </div>
-                </td>
-                <button class="block text-white bg-blue hover:bg-blue-lightest focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue dark:focus:ring-blue-lightest" type="button" data-modal-toggle="authentication-modal">
-  Toggle modal
-</button>
-
-<!-- Main modal -->
-<div id="authentication-modal" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed right-0 left-0 top-4 z-50 justify-center items-center h-modal md:h-full md:inset-0">
-    <div class="relative px-4 w-full max-w-md h-full md:h-auto">
-        <!-- Modal content -->
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-            <div class="flex justify-end p-2">
-                <button type="button" class="text-white bg-transparent hover:bg-teal-dark hover:text-teal-dark rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-toggle="authentication-modal">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>  
-                </button>
-            </div>
-            <form class="px-6 pb-4 space-y-6 lg:px-8 sm:pb-6 xl:pb-8" action="#">
-                <h3 class="text-xl font-medium text-teal-dark dark:text-white">Sign in to our platform</h3>
-                <div>
-                    <label for="email" class="block mb-2 text-sm font-medium text-teal-dark dark:text-gray-300">Your email</label>
-                    <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-teal-dark text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-white dark:text-white" placeholder="name@company.com" required>
-                </div>
-                <div>
-                    <label for="password" class="block mb-2 text-sm font-medium text-teal-dark dark:text-gray-300">Your password</label>
-                    <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-teal-dark text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-white dark:text-white" required>
-                </div>
-                <div class="flex justify-between">
-                    <div class="flex items-start">
-                        <div class="flex items-center h-5">
-                            <input id="remember" aria-describedby="remember" type="checkbox" class="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-gray-600 dark:border-gray-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800" required>
-                        </div>
-                        <div class="ml-3 text-sm">
-                        <label for="remember" class="font-medium text-teal-dark dark:text-gray-300">Remember me</label>
-                        </div>
-                    </div>
-                    <a href="#" class="text-sm text-blue hover:underline dark:text-blue-500">Lost Password?</a>
-                </div>
-                <button type="submit" class="w-full text-white bg-blue hover:bg-blue-lightest focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue dark:focus:ring-blue-lightest">Login to your account</button>
-                <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
-                    Not registered? <a href="#" class="text-blue hover:underline dark:text-blue-500">Create account</a>
-                </div>
-            </form>
-        </div>
-    </div>
-</div> 
+                </td> 
               </tr>
             </tbody>
           </table>
-<div class="flex items-center space-x-1">
-    <a href="#" class="px-4 py-2 font-bold text-teal-darkest bg-teal-lightest rounded-md hover:bg-teal-darkest hover:text-white">
+        </div>
+        <div class="py-2 justify-center flex">
+    <a href="#" class="px-4 py-2 font-bold text-white bg-green-800 bg-opacity-80 rounded-md hover:bg-yellow-400">
         Previous
     </a>
 
-    <a href="#" class="px-4 py-2 text-teal-darkest bg-teal-lightest rounded-md hover:bg-teal-darkest hover:text-white">
+    <a href="#" class="px-4 py-2 font-bold text-white bg-green-800 bg-opacity-80 rounded-md hover:bg-yellow-400">
         1
     </a>
-    <a href="#" class="px-4 py-2 text-teal-darkest bg-teal-lightest rounded-md hover:bg-teal-darkest hover:text-white">
+    <a href="#" class="px-4 py-2 font-bold text-white bg-green-800 bg-opacity-80 rounded-md hover:bg-yellow-400">
         2
     </a>
-    <a href="#" class="px-4 py-2 text-teal-darkest bg-teal-lightest rounded-md hover:bg-teal-darkest hover:text-white">
+    <a href="#" class="px-4 py-2 font-bold text-white bg-green-800 bg-opacity-80 rounded-md hover:bg-yellow-400">
         3
     </a>
-    <a href="#" class="px-4 py-2 font-bold text-teal-darkest bg-teal-lightest rounded-md hover:bg-teal-darkest hover:text-white">
+    <a href="#" class="px-4 py-2 font-bold text-white bg-green-800 bg-opacity-80 rounded-md hover:bg-yellow-400">
         Next
     </a>
 </div>
+      </div>
+    </div>
+  </div>
+  <div class="w-1/12">
+    <div
+      v-if="showModal"
+      class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex"
+    >
+      <div class="relative w-auto my-6 mx-auto max-w-6xl">
+        <!--content-->
+        <div
+          class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none"
+        >
+          <!--header-->
+          <div
+            class="flex items-start justify-center p-1 border-b border-solid border-blueGray-200 rounded-t"
+          >
+            <h5 class="text-3xl font-semibold">CREATE ORDEM</h5>
+          </div>
+          <!--body-->
+          <form class="w-full max-w-lg p-3">
+            <div class="w-full md:min-w-full mb-6 md:mb-0 pb-3">
+              <div class="col-span-6">
+                <label
+                  class="justify-center block text-sm font-medium text-gray-700"
+                  >Ação
+                </label>
+                <select
+                  @click="selecStock"
+                  v-model="name"
+                  class="mt-1 mb- block w-full py-2 px-3 border bg-gray-200 border-gray-200 text-gray-700 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                >
+                  <option v-for="stocks in seila" :key="stocks">
+                    {{ stocks.stock_name }}
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <div class="flex justify-evenly -mx-3 mb-2">
+              <div class="w-1/2 md:w-1/3 px-3 mb-6 md:mb-0">
+                <label
+                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-state"
+                >
+                  Tipo
+                </label>
+                <div class="relative">
+                  <select
+                    v-model="type"
+                    class="block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  >
+                    <option value="1">Venda</option>
+                    <option value="0">Compra</option>
+                  </select>
+                  <div
+                    class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                <label
+                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-city"
+                >
+                  Quantidade
+                </label>
+                <input
+                  v-model="volume"
+                  class="appearance-none block w-10/12 bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  type="text"
+                />
+              </div>
+              <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                <label
+                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-zip"
+                >
+                  Preço
+                </label>
+                <input
+                  v-model="price"
+                  class="appearance-none block w-10/12 bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  type="text"
+                />
+              </div>
+            </div>
+          </form>
+          <!--footer-->
+          <div
+            class="flex items-center justify-between p-3 border-t border-solid border-blueGray-200 rounded-b"
+          >
+            <button
+              class="py-3 px-8 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-300 hover:bg-gray-200 focus:outline-none"
+              @click="CreteOrdem"
+              v-on:click="toggleModal()"
+            >
+              Salvar Ordem
+            </button>
+            <button
+              class="py-3 px-8 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-300 hover:bg-gray-200 focus:outline-none"
+              type="button"
+              v-on:click="toggleModal()"
+            >
+              Close
+            </button>
+          </div>
         </div>
       </div>
     </div>
+    <div v-if="showModal" class="opacity-25 fixed inset-0 z-40 bg-black"></div>
   </div>
 </template>
 
@@ -181,6 +248,8 @@ import axios from "axios";
 export default {
   data: () => ({
     acoes: [],
+    showModal: false,
+
   }),
   created() {
     this.buscar();
@@ -235,6 +304,9 @@ export default {
         }
       }
     },
+    toggleModal: function () {
+      this.showModal = !this.showModal;
+    }, 
   },
 };
 </script>

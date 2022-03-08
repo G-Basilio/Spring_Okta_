@@ -1,16 +1,16 @@
 <template>
   <div id="profile">
-    <div class="flex flex-col">
-      <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <div class="py-10 align-middle inline-block min-w-full sm:px-32 lg:px-7">
+    <div class="flex-auto">
+      <div class="-my-2 overflow-x-hidden sm:-mx-2 lg:-mx-1">
+        <div class="py-20 align-middle inline-table min-w-full sm:px-32 lg:px-48">
           <div
-            class="shadow overflow-hidden border-b border-black sm:rounded-lg"
+            class="bg-green-300 bg-opacity-20 border-2 border-green-800 sm:rounded-lg"
           >
             <table class="min-w-full divide-y divide-black">
-              <thead class="bg-teal-dark">
+              <thead class="bg-green-600 bg-opacity-70">
                 <th
                   scope="col"
-                  class="px-6 py-3 text-center text-xs font- text-white uppercase tracking-wider"
+                  class="px-2 py-5 text-center text-xs text-white uppercase tracking-wider"
                 >
                   Nome
                 </th>
@@ -34,37 +34,35 @@
                 </th>
               </thead>
               <tbody
-              class="bg-teal-lightest divide-y divide-black"
+              class=" divide-y divide-black"
               v-for="(peoples, i) in people"
               :key="i"
             >
               <tr class="font-extrabold">
                 <td class="px-3 py-4 whitespace-nowrap ">
                   <div class="flex items justify-center">
-                      <div class="text-sm medium text-teal-darker">
+                      <div class=" text-gray-900 ">
                         {{ peoples.name }}
                     </div>
                   </div>
                 </td>
                 <td class="px-3 py-4 whitespace-nowrap">
                   <div class="flex items justify-center">
-                      <div class="text-sm medium text-teal-darker">
+                      <div class=" text-gray-900">
                         {{ peoples.email }}
                     </div>
                   </div>
                 </td>
                 <td class="px-3 py-4 whitespace-nowrap">
                   <div class="flex items justify-center">
-                    <div class="ml-4">
-                      <div class="text-sm medium text-teal-darker">
+                      <div class=" text-gray-900">
                         {{ peoples.verificacao }}
-                      </div>
                     </div>
                   </div>
                 </td>
                 <td class="px-3 py-4 whitespace-nowrap">
                   <div class="flex items justify-center">
-                      <div class="text-sm medium text-teal-darker">
+                      <div class=" text-gray-900">
                         {{ peoples.dinheiro }}
                     </div>
                   </div>
@@ -80,7 +78,7 @@
                   
                 </th>
             <table class="min-w-full divide-y divide-black">
-              <thead class="bg-teal-dark">
+              <thead class="bg-green-600 bg-opacity-70">
                 <th
                   scope="col"
                   class="px-6 py-3 text-center text-xs font- text-white uppercase tracking-wider"
@@ -105,21 +103,21 @@
               ></th>
               </thead>
               <tbody
-              class="bg-teal-lightest divide-y divide-black"
+              class="divide-y divide-black"
               v-for="(balances, i) in balance"
               :key="i"
             >
               <tr class="font-extrabold">
                 <td class="px-3 py-4 whitespace-nowrap ">
                   <div class="flex items justify-center">
-                      <div class="text-sm medium text-teal-darker">
+                      <div class=" text-gray-900">
                         {{ balances.simbolo }}
                     </div>
                   </div>
                 </td>
                 <td class="px-3 py-4 whitespace-nowrap">
                   <div class="flex items justify-center">
-                      <div class="text-sm medium text-teal-darker">
+                      <div class=" text-gray-900">
                         {{ balances.nome }}
                     </div>
                   </div>
@@ -127,7 +125,7 @@
                 <td class="px-3 py-4 whitespace-nowrap">
                   <div class="flex items justify-center">
                     <div class="ml-4">
-                      <div class="text-sm medium text-teal-darker">
+                      <div class=" text-gray-900">
                         {{ balances.volume }}
                       </div>
                     </div>
@@ -136,13 +134,17 @@
                   <td class="px-3 py-4 whitespace-nowrap">
                   <div class="flex items justify-center">
                     <button
-                      class="bg-teal-dark hover:bg-teal-darker text-white font-bold py-2 px-4 border border-black rounded"
-                    >
-                      Vender
+                      class="bg-green-800 bg-opacity-80 hover:bg-yellow-400  text-white font-bold py-2 px-4 border-2 border-gray-800 rounded" 
+                      type="button"
+              v-on:click="toggleModal()"
+            >
+              Vender
+                      
                     </button>
                   </div>
                 </td>
                 </tr>
+                
               </tbody>
             </table>
           </div>
@@ -150,6 +152,7 @@
       </div>
     </div>
   </div>
+  
 </template>
 
 <script>
@@ -158,7 +161,9 @@ export default {
   data: () => ({
     people: [],
     balance: [],
-    infosUser: []
+    infosUser: [],
+    showModal: false,
+
   }),
   async created() {
     this.config();
@@ -209,6 +214,9 @@ export default {
         
       }
     }
-  }
+  },
+  toggleModal: function () {
+      this.showModal = !this.showModal;
+    },
 }
 </script>
