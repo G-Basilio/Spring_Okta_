@@ -34,4 +34,14 @@ public class User_OrdersDTO {
                 volume,
                 volume_remaining);
     } 
+
+    /* public User_OrdersDTO(User_Orders order) {
+        id = order.getId();
+        id_user = order.getId_user();
+        id_stock = order.getId_stock();
+        stock_symbol = order.getStock_symbol();
+        stock_name = order.getStock_name();
+        volume = order.getVolume();
+        type = order.getType();
+    } */
 }

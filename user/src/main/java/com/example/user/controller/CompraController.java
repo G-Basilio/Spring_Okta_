@@ -24,6 +24,10 @@ public class CompraController {
     @Autowired
     VendaRepository vendaRepository;
 
+    /* public User_OrdersDTO comprar(@RequestBody User_Orders orders) {
+        User_Orders order = user_OrdersRepository.save(orders);
+        User_OrdersDTO ordersDto = new User_OrdersDTO(order); */
+
     @PostMapping("/compra")
     public User_Orders comprar(@RequestBody User_OrdersDTO ordersDto) {
         if (ordersDto.getType() == 1) {

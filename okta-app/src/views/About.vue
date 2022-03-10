@@ -130,3 +130,40 @@ export default {
         Next
     </a>
 </div>
+
+
+
+
+
+
+async getMoeda() {
+      console.log("to aquiiiiiiiiii");
+      if (this.$root.authenticated) {
+        this.claims = await this.$auth.getUser();
+        let accessToken = this.$auth.getAccessToken();
+        try {
+          let response = await axios.get(`http://localhost:8081/stocks/todos`, {
+            headers: { Authorization: "Bearer " + accessToken },
+          });
+          console.log(response.data);
+          let balance = response.data;
+
+          for (let key in balance) {
+            if (balance[key].userStokcks.user.username === this.claims.email) {
+              console.log("É igual abestadooo");
+              this.teste.push = {
+                username: balance[key].userStokcks.user.username,
+                nome: balance[key].stock_name,
+                simbolo: balance[key].stock_symbol,
+                volume: balance[key].volume,
+
+              };
+            }
+          }
+
+          console.log(this.teste);
+        } catch (error) {
+          this.walletUser = `${error}`;
+        }
+      }
+    },

@@ -4,6 +4,7 @@ import java.util.List;
 import com.example.user.controller.DTO.User_OrdersDTO;
 import com.example.user.model.User;
 import com.example.user.model.User_Orders;
+import com.example.user.model.User_Stock_Balances;
 import com.example.user.repository.UserRepository;
 import com.example.user.repository.User_OrdersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,7 @@ public class User_OrdersController {
 
     @Autowired 
     User_OrdersRepository user_OrdersRepository;
+   
 
     @Autowired
     UserRepository userRepository;
@@ -51,4 +53,30 @@ public class User_OrdersController {
         User_Orders user_Orders = user_OrdersDTO.codigo(user);
         return new ResponseEntity<>(user_OrdersRepository.save(user_Orders), HttpStatus.CREATED);
     }
+    /*  @PostMapping("/orders")
+    public ResponseEntity<User_Orders> criaOrdem(@RequestBody User_OrdersDTO dto ,@RequestHeader("Authorization") String token) {
+        User user = userRepository.findById(dto.getId_user()).orElseThrow();
+        List<User_Stock_Balances> teste = user_Stock_Balances.FindStock(dto.getId_user(), dto.getId_stock());
+        Double dollar = user.getDollar_balance();
+        Double mult = dto.getPrice() * dto.getVolume();
+        if(dollar >= mult && dto.getType() == 0) {
+            User_Orders userOrders = user_OrdersRepository.save(dto.transObj(user));
+            userStockService.teste1(userOrders.getId_stock(), token);
+            matchService.match();
+            return new ResponseEntity<>(userOrders, HttpStatus.CREATED);
+
+        } else if(dto.getType() == 1 &&  !teste.isEmpty()  ){
+            if(dto.getVolume() <= teste.get(0).getVolume() ){
+                User_Orders userOrders = userOrderRepository.save(dto.transObj(user));
+                userStockService.teste1(userOrders.getId_stock(), token);
+                matchService.match();
+                return new ResponseEntity<>(userOrders, HttpStatus.CREATED);
+            }else {
+                System.out.println("Ordem não criada");
+            }
+        }else {
+            System.out.println("Ordem não criada");
+        }
+        return null;
+    }  */
 }

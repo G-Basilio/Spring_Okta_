@@ -2,6 +2,7 @@ package com.example.user.repository;
 
 
 
+import java.util.List;
 import java.util.Optional;
 
 import com.example.user.model.User_Stock_Balances;
@@ -13,7 +14,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface User_Stock_BalancesRepository extends JpaRepository<User_Stock_Balances, Long> { //usar por que ja tem varios metodos como save, delete etc... {
    
-    Optional<User_Stock_Balances> findById(Long id_user);
+    
+    @Query(value =  " select * from user_stock_balances usb where id_user = ?1 " , nativeQuery = true)
+    List<User_Stock_Balances> findUser(Long user);
 
     
 

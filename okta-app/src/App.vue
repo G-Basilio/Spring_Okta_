@@ -20,7 +20,8 @@
             <!-- menu -->
 
             <div class="hidden md:flex items-center space-x-1">
-              <router-link id="router-link"
+              <router-link
+                id="router-link"
                 to="/"
                 class="py-5 px-80 text-white hover:text-yellow-500 flex items-center"
               >
@@ -40,7 +41,8 @@
                 </svg>
                 Home
               </router-link>
-              <router-link id="router-link"
+              <router-link
+                id="router-link"
                 class="py-5 px-10 text-white hover:text-yellow-500 flex items-center"
                 to="/profile"
                 v-if="authenticated"
@@ -63,7 +65,8 @@
               </router-link>
 
               <!-- Order -->
-              <router-link id="router-link"
+              <router-link
+                id="router-link"
                 to="/ordens"
                 class="py-5 px-2 text-white hover:text-yellow-500 flex items-center"
                 v-if="authenticated"
@@ -86,7 +89,8 @@
             </div>
             <!-- Logout -->
             <div class="hidden md:flex items-center space-x-1">
-              <router-link id="router-link"
+              <router-link
+                id="router-link"
                 to="logout"
                 class="py-5 px-2 text-white hover:text-yellow-500 cursor-pointer flex items-center"
                 v-if="authenticated"
@@ -109,8 +113,9 @@
               </router-link>
 
               <!-- Login -->
-              <router-link id="router-link"
-                class="py-5 px-2 text-white hover:text-yellow-500 items-center"
+              <router-link
+                id="router-link"
+                class="py-5 px-2 text-white hover:text-yellow-500 cursor-pointer flex items-center"
                 to="/login"
                 v-if="!authenticated"
               >
@@ -138,30 +143,11 @@
 
       <!-- mobile menu -->
       <div class="" v-show="showMobileMenu">
-        <router-link
-          to="/"
-          >Home
-        </router-link>
-        <router-link
-          to="/login"
-          v-if="!authenticated"
-          >Login
-        </router-link>
-        <router-link
-          to="/profile"
-          v-if="authenticated"
-          >Profile
-        </router-link>
-        <router-link
-          to="/ordens"
-          >Ordens
-        </router-link>
-        <a
-          to="/logout"
-          v-if="authenticated"
-          v-on:click="logout()"
-          >Logout
-        </a>
+        <router-link to="/">Home </router-link>
+        <router-link to="/login" v-if="!authenticated">Login </router-link>
+        <router-link to="/profile" v-if="authenticated">Profile </router-link>
+        <router-link to="/ordens">Ordens </router-link>
+        <a to="/logout" v-if="authenticated" v-on:click="logout()">Logout </a>
       </div>
     </nav>
     <div id="content">
@@ -171,10 +157,8 @@
 </template>
 
 <script>
-
 import { ref } from "vue";
 export default {
-
   name: "#app",
   data: function () {
     return { authenticated: false };

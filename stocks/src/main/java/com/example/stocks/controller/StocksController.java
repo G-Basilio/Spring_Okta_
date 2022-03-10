@@ -26,8 +26,12 @@ public class StocksController {
         return stocks_Repository.findAll();
     }
 
-    @GetMapping("/{id}")
+ /*    @GetMapping("/{id}")
     public Optional<Stocks> stocksID(@PathVariable Long id, @RequestHeader("Authorization") String token) {
         return stocks_Repository.findById(id);
+    } */
+    @GetMapping("/{stock_name}")
+    public List <Stocks> list(@PathVariable ("stock_name")String stock_name){
+        return stocks_Repository.FindStockName(stock_name);
     }
 }

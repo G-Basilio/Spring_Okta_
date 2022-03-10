@@ -36,9 +36,14 @@ public class User_Stock_BalancesController {
     @Autowired
     UserStocksBalancesService userStocksBalancesService;
 
-    @GetMapping("todos")
+    @GetMapping("/todos")
     public List<User_Stock_Balances> listStock() {
         return stock_B_Repository.findAll();
+    }
+
+    @GetMapping("/teste/{id_user}")
+    public List <User_Stock_Balances> list(@PathVariable ("id_user")Long user){
+        return stock_B_Repository.findUser(user);
     }
 
     @GetMapping("/{id}")
@@ -47,10 +52,6 @@ public class User_Stock_BalancesController {
         User_Stock_BalancesDTO user_Stock_BalancesDTO = this.userStocksService.codigo(id, token);
         return ResponseEntity.ok(user_Stock_BalancesDTO);
     }
-/*     @GetMapping("/{id_user}")
-    public ResponseEntity<Optional<User_Stock_BalancesDTO>> findById(@PathVariable("id_user") Long id_user){
-        return ResponseEntity.ok().body(userStocksBalancesService.findById(id_user)) ;
-    } */
 
     @PostMapping("/add")
     public ResponseEntity<User_Stock_Balances> add(@RequestBody User_Stock_BalancesDTO user_Stock_BalancesDTO) {

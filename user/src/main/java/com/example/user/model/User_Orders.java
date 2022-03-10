@@ -39,11 +39,12 @@ public class User_Orders  implements Serializable{
     private BigDecimal price;
     private Integer type;
     private Integer status;
+    @UpdateTimestamp
+    @Column(name = "created_on")
     private Timestamp created_on;
     @UpdateTimestamp
     @Column(name = "updated_on")
     private Timestamp updatedOn;
-/* private Timestamp updated_on; */
     
 
     public User_Orders() {
@@ -61,8 +62,6 @@ public class User_Orders  implements Serializable{
                 this.status = status;
                 this.volume_remaining = volume_remaining;
                 this.volume = volume;
-                this.created_on = Timestamp.valueOf(LocalDateTime.now());
-                //this.updated_on = Timestamp.valueOf(LocalDateTime.now());
 
     }
 

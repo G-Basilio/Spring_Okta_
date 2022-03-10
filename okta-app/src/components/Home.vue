@@ -2,14 +2,12 @@
   <div id="ordens">
 
     <div v-if="!this.$root.authenticated">
-      <p>How much caffeine has your developer had today? <router-link role="button" to="/login">Log in to find out!</router-link></p>
+      <p> </p>
     </div>
 
     <div v-if="this.$root.authenticated">
-      <h1>Bem Vindo, {{claims.name}}!</h1>
-      <p>
-        {{this.caffeineLevel}}
-      </p>
+    <h5 class="py-16 text-5xl font-semibold flex justify-center">Bem Vindo, {{claims.name}}!</h5>
+
     </div>
   </div>
 </template>

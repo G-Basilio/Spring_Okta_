@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -40,6 +41,12 @@ public class UserController {
     public ResponseEntity<Optional<UserDTO>> findByUsername(@PathVariable("username") String username){
         return ResponseEntity.ok().body(userService.findByUsername(username)) ;
     } 
+
+    /* @GetMapping("/userId")
+    public Long buscarUserId(@RequestParam(required = false, defaultValue = "0") String username){
+        User user = userRepository.findByUsername2(username);
+        return user.getId();
+    }  */
     @PostMapping
     public User adicionar(@RequestBody User user) {
         return userRepository.save(user); 

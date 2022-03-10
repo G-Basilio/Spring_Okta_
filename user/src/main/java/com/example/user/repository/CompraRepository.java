@@ -12,16 +12,15 @@ import java.util.List;
 @Transactional
 @Repository
 public interface CompraRepository extends JpaRepository<User_Orders, Long> {
-        /*
-         * @Modifying
-         * 
-         * @Query(value = "INSERT INTO public.user_orders" +
-         * "(id_user, id_stock, stock_symbol, stock_name, volume, price, type, status, created_on, updated_on)"
-         * +
-         * "VALUES(?1, ?2, 'BEEF', 'MINERVA', ?3, ?4, 1, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)"
-         * , nativeQuery = true)
-         * int insert(Long id_user, Long id_stock, Integer volume, BigDecimal price);
-         */
+        
+ /*          @Modifying
+          
+          @Query(value = "INSERT INTO public.user_orders" + 
+          "(id_user, id_stock, stock_symbol, stock_name, volume, price, type, status, created_on, updated_on)"
+          +
+          "VALUES(?1, ?2, 'BEEF', 'MINERVA', ?3, ?4, 1, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)", nativeQuery = true)
+         int insert(Long id_user, Long id_stock, Integer volume, BigDecimal price); */
+         
 
         // Compra 1
         // Venda 2
